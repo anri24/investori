@@ -1,0 +1,75 @@
+{% extends 'admin_templates/base.html' %}
+
+
+{% block title %}
+Admin/Home
+{%  endblock %}
+
+
+
+{% block css %}
+{% endblock %}
+
+{% block page_title %}
+{% endblock page_title %}
+
+{% block js %}
+{% endblock %}
+<!-- main -->
+{% block content %}
+
+
+<table class="table"  style="color:white;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">რეზიუმე</th>
+
+        <th scope="col">სახელი</th>
+        <th scope="col">გვარი</th>
+        <th scope="col">ნომერი</th>
+        <th scope="col">იმეილი</th>
+
+        <th scope="col">ქალაქი</th>
+        <th scope="col">სქესი</th>
+
+        <th scope="col">დაბადების თარიღი</th>
+        <th scope="col">შეუძლია</th>
+        <th scope="col">გამოგზავნილია</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+
+        {% for user in datas %}
+        
+      <tr>
+        
+        <th scope="row">{{ user.id }}</th>
+        <td>
+          <a href="{{ user.sv.url}}" target="_blank">
+            reziume
+          </a>
+        </td>
+
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.phone_number }}</td>
+        <td>{{ user.email }}</td>
+
+        <td>{{ user.city }}</td>
+        <td>{{ user.gender }}</td>
+
+        <td>{{ user.dabadebis_dge }}/{{ user.dabadebis_tve }}/{{ user.dabadebis_weli }}</td>
+        <td >{{ user.skills }}</td>
+        <td>{{ user.created_at }}</td>
+
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+
+
+
+{% endblock content %}

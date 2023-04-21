@@ -1,0 +1,88 @@
+{% extends 'account/base.html' %}
+
+{% load static %}
+{% block title %}Investor{% endblock %}
+
+{% block content %}
+
+
+
+
+
+      
+    <a href="{% url 'resumes' %}"><button type="button" class="btn btn-secondary">უკან</button></a>
+    <a href="javascript:generatePDF()" id="downloadButton"><button type="button" class="btn btn-success">გადმოწერა</button></a><br><br>
+
+    <div id="whatToPrint">
+        <div  class="container" >
+        <div  class="row">
+        
+
+          <div  class="col-sm-4" id="resume-left-side" style="width:300px;border:1px solid black;">
+            <img src="{{ resume.photo.url }}" alt=""  style="width:300px; margin-top:20px;">
+
+            <h2> {{resume.firstandlastname}}</h2><br> 
+
+           <h4> {{ resume.profesia }}</h4><br>
+
+            <div class="profesional-info" style="background-color: greenyellow;">
+                პერსონალური ინფორმაცია
+              </div>
+              Phone:<br>
+                {{resume.number}}<br>
+                Email:<br>
+                {{ resume.email }}<br>
+                Adress:<br>
+                {{ resume.country }},{{resume.city}}<br>
+              <div class="skills" style="background-color: greenyellow;">
+                შესაძლებლობები
+              </div>
+              {{ resume.skills}}
+          </div>
+         
+          <div class="col-sm-4"id="resume-right-side" style="border:1px solid black;">
+            {{resume.shesaxeb}}
+            
+            <div class="" style="background-color:greenyellow; margin-top:50px;" >
+                
+                გამოცდილება
+                
+                  </div>
+                  {{ resume.gamocdileba }}
+                  <div class="" style="background-color:greenyellow; margin-top:50px;" >
+                    
+                    განათლება
+                    
+                      </div>
+                      {{ resume.ganatlebis_etapi }}<br>
+                      
+                      {{ resume.start_month }}/{{ resume.start_year }}-{{ resume.end_month }}/{{ resume.end_year }}<br>
+
+                      {{ resume.sad_miige_ganatleba }}
+                      <div class=""  style="background-color:greenyellow; margin-top:50px;">
+                        
+                        ინტერესები
+                        
+                          </div>
+                          {{resume.interesebi}}
+          </div>
+          
+        
+          
+        </div>
+      </div>
+    </div>
+
+        <!--<img src="https://th.bing.com/th/id/OIP.wdkLi0wAUuLf5gdNFincPwHaEd?pid=ImgDet&rs=1"/>-->
+
+
+    
+
+
+<!--
+
+HTML + CSS -> PNG (html2canvas)
+PNG -> Add to PDF (jsPDF)
+Download PDF (jsPDF)
+
+-->    {% endblock %}

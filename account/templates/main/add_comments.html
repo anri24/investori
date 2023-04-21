@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+{% block content %}
+
+
+
+
+<form method="post">
+    {% csrf_token %}
+  
+
+   <br>
+      {{ form.as_p }}
+      <button style="font-size:20px;" type="submit" class="btn btn-primary">დამატება</button>
+
+</form>
+{% endblock %}

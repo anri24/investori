@@ -1,0 +1,59 @@
+{% extends 'account/base.html' %}
+
+{% load static %}
+
+{% block title %}Investoris reziume{% endblock %}
+
+{% block content %}
+
+<script>
+    window.onload = function () {
+        document.getElementById("download")
+            .addEventListener("click", () => {
+                const invoice = this.document.getElementById("invoice");
+                console.log(invoice);
+                console.log(window);
+                var opt = {
+                    margin: 1,
+                    filename: 'myfile.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().from(invoice).set(opt).save();
+            })
+    }
+        </script>
+
+    <h1>Resumes </h1>
+    <a href="{% url 'resume-create' %}">
+    <button type="button" class="btn btn-success">შექმენი რეზიუმე</button>
+    </a>
+
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+
+        </tr>
+
+        {% for resume in resumes %}
+        <tr>
+            <th>{{resume.firstandlastname}}</th>
+
+            <th><a href="{% url 'resume' resume.id %}"><button type="button" class="btn btn-primary">ნახვა</button></a></th>
+            <th><a href="{% url 'resume-update' resume.id %}"><button type="button" class="btn btn-warning">რედაქტირება</button></a></th>
+            <th><a href="{% url 'resume-delete' resume.id %}"><button type="button" class="btn btn-danger">წაშლა</button></a></th>
+
+        </tr>
+        {% empty %}
+            <h3>No items in list</h3>
+        {% endfor %}
+
+    </table>
+    {% endblock %}
+
+
+</body>
+</html>

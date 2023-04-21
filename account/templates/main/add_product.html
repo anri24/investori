@@ -1,0 +1,237 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+<style>
+  h5{
+    color:white;
+  }
+  .category{
+    max-width:300px;
+    color: white;
+  }
+  .gasvla,.submit{
+    font-size: 20px;
+  }
+</style>
+<script>
+      
+  $(document).ready(function(){
+    $(".myDiv").hide();
+
+      $('#category').on('change', function(){
+      var demovalue = $(this).val(); 
+      $(".myDiv").hide();
+
+      $(".show"+demovalue).show();
+    
+      });
+      });
+
+      
+  </script>
+<form  method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <a href="{% url 'index' %}"><button type="button" class=" gasvla btn btn-secondary">უკან</button></a>
+   <center>
+ 
+    {% if messages %}
+    {% for message in messages %}
+
+    {% if message.tags == "success" %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+    {% endif %}
+    
+    {% if message.tags == "error" %}
+    <div class="alert alert-danger">
+        {{message}}
+    </div>
+    {% endif %}
+
+    {% endfor %}
+    {% endif %}
+    
+
+   <h5 class="add's_text"> კატეგორია </h5>
+   <select style="width:200px;font-size:15px;" name="category" id="category" class="form-select" >
+    <option style="font-size:15px;" value="" selected>აირჩიე კატეგორია</option>
+    {% for cat in categories %}
+    <option style="font-size:20px;" name="category" value="{{ cat.id }}">{{ cat.name }}</option>
+    {% endfor %}
+  </select> <br>
+  
+
+
+   <h5 class="add's_text"> ქვეკატეგორია </h5>
+   <select style="width:200px;font-size:15px;" name="sub_category" class="form-select">
+    <option style="font-size:15px;" value="" selected>აირჩიე ქვეკატეგორია</option>
+    {% for subcat in sub_categories %}
+
+    <option style="font-size:20px;" name="sub_category" value="{{ subcat.id }}">{{ subcat.name }}</option>
+   
+
+    {% endfor %}
+  </select> <br>
+   
+
+  <h5 class="add's_text"> გარიგების ტიპი </h5>
+  <select style="width:200px;font-size:15px;" name="garigebis_tipi"  class="form-select" >
+    <option style="font-size:15px;" value="" selected>აირჩიე გარიგების ტიპი</option>
+    {% for gartipi in garigebisTipi %}
+    <option style="font-size:20px;" name="garigebis_tipi" value="{{ gartipi.id }}">{{ gartipi.saxeli }}</option>
+    {% endfor %}
+  </select> <br>
+
+
+  
+  <div class="show2 myDiv">
+    <h5>ავტომობილის ტიპი </h5>
+    <select style="width:200px;font-size:15px;" name="manqnis_tipi"  class="form-select" >
+      <option style="font-size:15px;" value="" selected>აირჩიე ქონების ტიპი</option>
+      {% for cartipi in qonebisTipiCar %}
+      <option style="font-size:20px;" name="manqnis_tipi" value="{{ cartipi.id }}">{{ cartipi.name }}</option>
+      {% endfor %}
+    </select> <br>
+    <h5>ბრენდი </h5>
+    <div class="mb-3 ">
+       <input style="width:200px;" type="text" name="brendi" class="form-control" id="name">
+     </div>
+     <h5>მოდელი </h5>
+    <div class="mb-3 ">
+       <input style="width:200px;" type="text" name="modeli" class="form-control" id="name">
+     </div>
+     <h5>წელი </h5>
+     <div class="mb-3 ">
+        <input style="width:200px;height:40px;font-size: 20px;" type="number" name="weli" class="form-control" id="name">
+      </div>
+      <h5>ძრავი </h5>
+     <div class="mb-3 ">
+        <input style="width:200px;" type="text" name="dzravi" class="form-control" id="name">
+      </div>
+      <h5>ფერი </h5>
+     <div class="mb-3 ">
+        <input style="width:200px;" type="text" name="feri" class="form-control" id="name">
+      </div>
+      <h5>საჭე </h5>
+      <select style="width:200px;font-size:15px;" name="sachis_tipi"  class="form-select" >
+        <option style="font-size:15px;" value="" selected>აირჩიე საჭე</option>
+        {% for ruli in sache %}
+        <option style="font-size:20px;" name="sache" value="{{ ruli.id }}">{{ ruli.name }}</option>
+        {% endfor %}
+      </select> <br>
+      
+    </div>
+
+  <div class="show6 myDiv">
+    <h5 class="add's_text">ქონების ტიპი</h5>
+    <select style="width:200px;font-size:15px;" name="saxlis_tipi"  class="form-select" >
+      <option style="font-size:15px;" value="" selected>აირჩიე ქონების ტიპი</option>
+      {% for housetipi in qonebisTipiHouse %}
+      <option style="font-size:20px;" name="saxlis_tipi" value="{{ housetipi.id }}">{{ housetipi.name }}</option>
+      {% endfor %}
+    </select> <br>
+     <h5>სართული </h5>
+    <div class="mb-3 ">
+       <input style="width:200px;height:40px;font-size: 20px;" type="number" name="sartuli" class="form-control" id="name" default="0">
+     </div>
+     <h5>სართულები სულ </h5>
+    <div class="mb-3 ">
+       <input style="width:200px;height:40px;font-size: 20px;" type="number" name="sartulebi_sul" class="form-control" id="name">
+     </div>
+     <h5>საძინებლების რაოდენობა</h5>
+    <div class="mb-3 ">
+       <input style="width:200px;height:40px;font-size: 20px;" type="number" name="sadzineblebi" class="form-control" id="name">
+     </div>
+     <h5>ფართი(კვ.მ)</h5>
+    <div class="mb-3 ">
+       <input style="width:200px;height:40px;font-size: 20px;" type="number" name="farti" class="form-control" id="name">
+     </div>
+    </div>
+
+
+
+    
+
+  
+  <h5 class="add's_text"> ადგილმდებარეობა </h5>
+  <select style="width:200px;font-size:15px;" name="adgilmdebareoba"  class="form-select" >
+    <option style="font-size:15px;" value="" selected>აირჩიე ადგილმდებარეობა</option>
+    {% for loc in lokacia %}
+    <option style="font-size:20px;" name="adgilmdebareoba" value="{{ loc.id }}">{{ loc.name }}</option>
+    {% endfor %}
+  </select> <br>
+
+ 
+
+  <h5 class="add's_text"> ქუჩა </h5>
+ <div class="mb-3">
+    <input style="width:200px;" type="text" name="quchis_saxeli" class="form-control" id="name">
+  </div>
+
+ 
+    <h5>სათაური </h5>
+    <div class="mb-3 ">
+       <input style="width:200px;" type="text" name="satauri"  class="form-control" id="name">
+     </div>
+    
+
+
+  <h5 class="add's_text"> ფასი($) </h5>
+ <div class="mb-3">
+    <input style="width:200px;height:40px;font-size: 20px;" type="number" name="price" class="form-control" id="name">
+  </div>
+  
+  <h5 class="add's_text"> მობილურის ნომერი </h5>
+  <div class="mb-3">
+    <input style="width:200px;height:40px;font-size: 20px;" type="number" name="telefonis_nomeri" class="form-control" id="name">
+  </div>
+  <h5 class="add's_text"> აღწერა </h5>
+  <textarea  style="width:300px;height:200px;" id="description" name="description" rows="4" cols="50"></textarea>
+  <h5 class="add's_text"> მთავარი ფოტო </h5>
+  <input type="file" id="photo" name="photo">
+
+  <h5 class="add's_text"> ფოტო(2) </h5>
+  <input type="file" id="photo2" name="photo2">
+
+  <h5 class="add's_text"> ფოტო(3) </h5>
+  <input type="file" id="photo3" name="photo3">
+
+  <h5 class="add's_text"> ფოტო(4) </h5>
+  <input type="file" id="photo4" name="photo4">
+
+  <h5 class="add's_text"> ფოტო(5) </h5>
+  <input type="file" id="photo5" name="photo5">
+
+  <h5 class="add's_text"> ფოტო(6) </h5>
+  <input type="file" id="photo6" name="photo6">
+
+  <h5 class="add's_text"> ფოტო(7) </h5>
+  <input type="file" id="photo7" name="photo7">
+
+  <h5 class="add's_text"> ფოტო(8) </h5>
+  <input type="file" id="photo8" name="photo8">
+
+  <h5 class="add's_text"> ფოტო(9) </h5>
+  <input type="file" id="photo9" name="photo9">
+
+  <h5 class="add's_text"> ფოტო(10) </h5>
+  <input type="file" id="photo10" name="photo10">
+
+
+ <br>
+
+
+   
+      <!-- <input type="submit" name="submit" class="submit action-button" value="Submit"/> -->
+      <button style="margin-top:20px;" type="submit" name="submit" class="submit btn btn-primary">ატვირთვა</button>
+    </center>
+    </form>
+
+    
+
+
+{% endblock content %}
+
+

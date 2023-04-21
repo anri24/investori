@@ -1,0 +1,17 @@
+{% extends 'admin_templates/base.html' %}
+
+{% block content %}
+<a href="{% url 'admin_login_process' %}"><button style="font-size:20px;" type="button" class=" gasvla btn btn-secondary">უკან</button></a>
+
+<center>
+<form  style="width:200px; height: 1000px;"  method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+   
+      
+      <button  style="margin-top:20px;font-size: 20px;" type="submit" class="btn btn-primary">დამატება</button>
+</form></center>
+
+
+
+{% endblock content %}

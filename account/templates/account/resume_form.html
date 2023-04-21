@@ -1,0 +1,402 @@
+
+<a href="{% url 'resumes' %}" class="btn btn-secondary btn-lg " role="button" aria-disabled="true">უკან</a>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{% static '/images/investor_favicon.jpg' %}" type="image/icon type">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<link rel="stylesheet" href="{% static '/css/resume.css' %}">
+
+<title>რეზიუმის შექმნა</title>
+    <style>
+        /*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    background: -webkit-linear-gradient(to left, #6441A5, #2a0845); /* Chrome 10-25, Safari 5.1-6 */
+}
+
+body {
+    font-family: montserrat, arial, verdana;
+    background: transparent;
+}
+
+/*form styles*/
+#msform {
+    text-align: center; /*shecvalee */
+    position: relative;
+    margin-top: 30px;
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 10%;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+
+/*inputs*/
+#msform input, #msform textarea {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+}
+
+#msform input:focus, #msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid green;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+    width: 100px;
+    background: green;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+}
+
+#msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px green;
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #C5C5F1;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+   
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+
+
+
+/* Not relevant to this form */
+.dme_link {
+    margin-top: 30px;
+    text-align: center;
+}
+.dme_link a {
+    background: #FFF;
+    font-weight: bold;
+    color: #ee0979;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 5px 25px;
+    font-size: 12px;
+}
+
+.dme_link a:hover, .dme_link a:focus {
+    background: #C5C5F1;
+    text-decoration: none;
+}
+
+
+    </style>
+    <script>
+        $(document).ready(function(){
+          $(".preference").click(function(){
+              var txt = ""
+              $(".preference:checked").each(function(){
+                txt+=$(this).val()+",";
+
+                 
+              })
+              txt=txt.substring(0,txt.length-1);
+              $("#txt").val(txt);
+          });
+        });
+    </script>
+
+</head>
+<body>
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">{% block page_title %} {% endblock page_title %}</h4>
+            </div>
+                
+        </div>
+    </div>
+    <!-- MultiStep Form -->
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form id="msform"  method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            <!-- progressbar -->
+          
+            
+            <!-- fieldsets -->
+            <fieldset>
+                {% if messages %}
+                {% for message in messages %}
+
+                {% if message.tags == "success" %}
+                <div class="alert alert-success">
+                    {{message}}
+                </div>
+                {% endif %}
+                
+                {% if message.tags == "error" %}
+                <div class="alert alert-danger">
+                    {{message}}
+                </div>
+                {% endif %}
+
+                {% endfor %}
+                {% endif %}
+                <img src="{% static '/images/investor_favicon.jpg' %}" style="width:100px;"><br><br>
+                <label for="ganatleba" class="form-label"> სახელი და გვარი</label><br>
+                {{form.firstandlastname}}
+                
+                <label for="ganatleba" class="form-label">პროფესია</label><br>
+
+                {{form.profesia}}
+                <label for="ganatleba" class="form-label">ემაილი</label><br>
+
+
+                {{form.email}}
+                <label for="ganatleba" class="form-label">მობილურის ნომერი</label><br>
+
+                {{form.number}}
+                <label for="ganatleba" class="form-label">ქვეყანა</label><br>
+
+                {{form.country}}
+                <label for="ganatleba" class="form-label">ქალაქი</label><br>
+
+                {{form.city}}
+                
+
+                <input type="button" name="next" class="next action-button" value="Next"/><br>
+            </fieldset>
+            <fieldset>
+                <img src="{% static '/images/investor_favicon.jpg' %}" style="width:100px;"><br><br>
+
+                <label for="ganatleba" class="form-label">შესაძლებლობები</label><br>
+
+                {{form.skills}}
+                <div id="checkbox-value"></div>
+
+                <div class="mb-3"  style="margin-top:20px;">
+                    <label for="photo" class="form-label">ფოტო</label>
+                    {{form.photo}}
+                </div>
+                  
+                  
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" name="next" class="next action-button" value="Next"/>
+            
+            </fieldset>
+            
+            <fieldset>
+                <img src="{% static '/images/investor_favicon.jpg' %}" style="width:100px;"><br><br>
+
+               
+                <label for="shesaxeb" class="form-label">შენს შესახებ</label>
+                {{form.shesaxeb}}
+
+                <label for="ganatleba" class="form-label">განათლება</label><br>
+                {{form.ganatlebis_etapi}}
+
+                
+
+
+                <label  style="margin-right:60px;">დაწყების</label>
+                <label style="margin-right:160px;">დამთავრების</label>
+                <div class="input-group">
+                    
+
+                    {{form.start_month}}
+                    {{form.start_year}}
+                    {{form.end_month}}
+                    {{form.end_year}}
+
+                      
+                      
+                     
+                  </div>
+
+
+                  
+                    <label for="sad_miige_ganatleba" class="form-label">სად დაამთავრე</label><br>
+
+                    {{form.sad_miige_ganatleba}}
+                    
+                    <label for="gamocdileba" class="form-label">გამოცდილება</label>
+                    {{form.gamocdileba}}
+
+                <label for="about" class="form-label">შენი ინტერესები</label>
+                {{form.interesebi}}
+
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+
+            </fieldset>
+       
+        </form>
+        <!-- link to designify.me code snippets -->
+        
+        <!-- /.link to designify.me code snippets -->
+    </div>
+</div>
+
+<!-- /.MultiStep Form -->
+<script>
+
+                  
+    //jQuery time
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var left, opacity, scale; //fieldset properties which we will animate
+    var animating; //flag to prevent quick multi-click glitches
+
+    $(".next").click(function(){
+        if(animating) return false;
+        animating = true;
+        
+        current_fs = $(this).parent();
+        next_fs = $(this).parent().next();
+        
+      
+        //show the next fieldset
+        next_fs.show(); 
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 50)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({
+            'transform': 'scale('+scale+')',
+            'position': 'absolute'
+        });
+                next_fs.css({'left': left, 'opacity': opacity});
+            }, 
+            duration: 800, 
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            }, 
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+    });
+
+    $(".previous").click(function(){
+        if(animating) return false;
+        animating = true;
+        
+        current_fs = $(this).parent();
+        previous_fs = $(this).parent().prev();
+        
+      
+        //show the previous fieldset
+        previous_fs.show(); 
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale previous_fs from 80% to 100%
+                scale = 0.8 + (1 - now) * 0.2;
+                //2. take current_fs to the right(50%) - from 0%
+                left = ((1-now) * 50)+"%";
+                //3. increase opacity of previous_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'left': left});
+                previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+            }, 
+            duration: 800, 
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            }, 
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+    });
+
+
+</script>
+</body>
+</html>

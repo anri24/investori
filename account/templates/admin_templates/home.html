@@ -1,0 +1,398 @@
+
+      {% extends "admin_templates/base.html"%}  
+      {% load static %}
+      
+      {% block mobileSidebar %}
+      <ul class="menu-overflow">
+
+      <li><a href="{% url 'about_us' %}">ჩვენს შესახებ</a></li>
+      <li><a href="contact-us.html">Contact</a></li>
+      <li><a href="#">HR</a>
+      <ul>
+          <li><a href="{% url 'registration' %}">თუ ეძებთ სამუშაოს, გამოგვიგზავნეთ თქვენი მონაცემებ</a></li>
+      </ul>
+      </li>
+      
+      
+      {% for cat in Categories %}
+      <li class="menu_item_children categorie_list"><a href="#"> {{ cat.name }} <i class="fa fa-angle-right"></i></a>
+      
+        <ul class="categories_mega_menu">
+            
+            {% for subcat in cat.sub_category_set.all %}
+            
+            <li class="menu_item_children" href="/?category={{subcat.id}}"><a href="#">{{ subcat.name }}</a></li>
+            {% endfor %}
+  </ul>
+  {% endfor %}
+      {% endblock %}
+
+
+        
+{% block content %}
+{% load static %}
+
+
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <!-- Body main wrapper start -->
+        <div class="wrapper home-one"  style="background-color:#1F2025">
+
+            <!-- HRADER AREA END -->
+            <!-- Slider area -->
+            <div class="slider-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="slider-hidden col-lg-3 col-sm-3">
+                            
+                        </div>
+                        <div class="slider col-xl-9">
+						
+							<!-- slider-area start -->
+							<div class="slider-area-inner">
+								<!-- slider start -->
+								<div class="">
+                                    <!-- <div class="full_logo">
+                                    <img src="{% static 'images2/logo/investor-without-txt.png'  %}"style="margin-bottom:150px;width:300px;" class="logo_head"  alt="main slider" title="#htmlcaption1"/>
+                                    <img src="{% static 'images2/logo/investor-txt.png'  %}"style="margin-bottom:150px;width:670px;" class="logo_txt"  alt="main slider" title="#htmlcaption1"/>
+                                </div> -->
+									<div id="htmlcaption1" class="nivo-html-caption slider-caption">
+										<div class="slider-progress"></div>
+										<div class="col-md-9">
+											<div class="slider-content slider-content-1 slider-animated-1">
+												<!-- <h1 class="hone">მოგესალმებით</h1>
+												<h1 class="htwo">კომპანია</h1>
+												<h1 class="hthree">"ინვესტორი"</h1> -->
+												
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!-- slider end -->
+							</div>
+							<!-- slider-area end -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Slider area end -->
+
+           
+
+            <!-- Best sellers -->
+            <div  class="product-area" style="margin-top:100px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="section-title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-area-inner">
+                        <div class="row" >
+                                    <!-- single product --> 
+                                    
+                                    {% for product in Products %}
+                                    
+                                    <div class="col-lg-3" style="background-color:white; margin-top:20px;margin-left:20px;width:300px;">
+                                        <div class="product-wrapper gridview">
+                                            <a href="{% url 'admin_product' product.id %}">
+
+                                            <div class="list-col4">
+                                                <div class="product-image">
+                                                        {% if product.photo.url is not None%}
+                                                        {% if product.photo.url|slice:"-4:" == ".mp4" %} 
+                                                        <video  style="height:200px;width:250px;" controls autoplay muted>
+                                                        <source src="{{ MEDIA_URL }}/{{ product.photo.url }}"   type="video/mp4">
+                                                      </video>
+                                                      {% else %}
+                                                      <img src="{{ product.photo.url }}" style="height:200px;" alt="">
+
+
+                                                      {% endif %}
+                                                        {% else %}
+                                                        <img src="{% static 'images2/slider/investor.jpg' %}"   alt="main slider" title="#htmlcaption1"/>
+
+                                                        {% endif %}
+
+                                                    
+                                                    <div class="quickviewbtn">
+                                                        <a href="#" data-toggle="modal" data-target="#product_modal"  data-original-title="Quick View"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            ID:{{product.id}}
+                                            <div class="list-col8">
+                                                <div class="product-info">
+                                                    <h2><a href="{% url 'admin_product' product.id %}"> 
+                                                      {% if product.category_id == 2 %}
+                                                      {{product.garigebis_tipi}}
+                                                      {{ product.brendi }} {{ product.modeli }}
+                                                      {% elif product.category_id == 6 %}
+                                                      {{product.garigebis_tipi}}
+                                                      {{ product.qonebisTipiHouse }}
+                                                      {% else %}
+                                                      {{ product.satauri }}
+                                                      {% endif %}<br>
+                                                       მისამართი: {{product.lokacia}}</a>
+                                                      </h2>
+                                                    </a></h2>
+                                                    <span class="price">
+                                                        ${{product.price}}
+                                                    </span>
+                                                </div><br>
+                                                <div class="product-hidden">
+                                                    <div class="">
+                                                      <button type="button" class="btn btn-warning">
+                                                        <a style="font-size:20px;" href="{% url 'product_update' product.id %}">რედაქტირება</a></button>
+
+                                                        <button type="button" class="btn btn-danger">
+                                                        <a style="font-size:20px;" href="{% url 'product_delete' product.id %}">წაშლა</a></button>
+
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </a>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    {% empty %}
+                                    
+                                    <!-- <div align="center" style="transform: translateY(-500px);">
+                                       <h1 class="servisisferi">სერვისი დროებით მიუწვდომელია</h1>
+                                    </div> -->
+                                    
+                                    {% endfor %}
+                                    
+                                    <!-- single product end -->
+                                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Best sellers end -->
+
+            
+           
+          <!--kompaniebi-->
+            <!-- Brand logo area -->
+            <!--<div class="brand-logo-area">-->
+            <!--    <div class="container">-->
+            <!--        <div class="row">-->
+            <!--            <div class="col-sm-12">-->
+            <!--                <div class="brand-carousel-active owl-carousel">-->
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand1.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand2.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand3.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand4.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand5.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand6.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand7.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand8.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand9.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+                               
+            <!--                    <div class="brand-logo">-->
+            <!--                        <a href="#"><img src="{% static 'images2/brand/brand1.jpg' %}" alt="Brand logo"></a>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!--    </div>-->
+            <!--</div>-->
+            <!-- Brand logo area end -->
+
+</div>
+<!-- Body main wrapper end -->       
+          <script>
+              // Author: Hoang Tran (https://www.facebook.com/profile.php?id=100004848287494)
+// Github verson (1 file .html): https://github.com/HoangTran0410/3DCarousel/blob/master/index.html
+
+
+// You can change global variables here:
+var radius = 440; // how big of the radius
+var autoRotate = true; // auto rotate or not
+var rotateSpeed = -60; // unit: seconds/360 degrees
+var imgWidth = 120; // width of images (unit: px)
+var imgHeight = 170; // height of images (unit: px)
+if($(window).width()<=700)
+{
+    radius = 200;
+    $('.companies8').remove();
+    $('.companies9').remove();
+    $('.companies10').remove();
+    $('.companies11').remove();
+    $('.companies12').remove();
+    $('.companies13').remove();
+    $('.companies14').remove();
+    $('.companies15').remove();
+}
+
+if($(window).width()<=500)
+{
+    radius = 120;
+    $('.companies7').remove();
+    $('.companies6').remove();
+
+}
+
+/*
+     NOTE:
+       + imgWidth, imgHeight will work for video
+       + if imgWidth, imgHeight too small, play/pause button in <video> will be hidden
+       + Music link are taken from: https://hoangtran0410.github.io/Visualyze-design-your-own-/?theme=HauMaster&playlist=1&song=1&background=28
+       + Custom from code in tiktok video  https://www.facebook.com/J2TEAM.ManhTuan/videos/1353367338135935/
+*/
+
+
+// ===================== start =======================
+// animation start after 1000 miliseconds
+setTimeout(init, 1000);
+
+var odrag = document.getElementById('drag-container');
+var ospin = document.getElementById('spin-container');
+var aImg = ospin.getElementsByTagName('img');
+var aVid = ospin.getElementsByTagName('video');
+var aEle = [...aImg, ...aVid]; // combine 2 arrays
+
+
+// Size of images
+ospin.style.width = imgWidth + "px";
+ospin.style.height = imgHeight + "px";
+
+// Size of ground - depend on radius
+var ground = document.getElementById('ground');
+ground.style.width = radius * 3 + "px";
+ground.style.height = radius * 3 + "px";
+
+function init(delayTime) {
+  for (var i = 0; i < aEle.length; i++) {
+    aEle[i].style.transform = "rotateY(" + (i * (360 / aEle.length)) + "deg) translateZ(" + radius + "px)";
+    aEle[i].style.transition = "transform 1s";
+    aEle[i].style.transitionDelay = delayTime || (aEle.length - i) / 4 + "s";
+  }
+}
+
+function applyTranform(obj) {
+  // Constrain the angle of camera (between 0 and 180)
+  if(tY > 180) tY = 180;
+  if(tY < 0) tY = 0;
+
+  // Apply the angle
+  obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
+}
+
+function playSpin(yes) {
+  ospin.style.animationPlayState = (yes?'running':'paused');
+}
+
+var sX, sY, nX, nY, desX = 0,
+    desY = 0,
+    tX = 0,
+    tY = 10;
+
+// auto spin
+if (autoRotate) {
+  var animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
+  ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
+}
+
+// add background music
+if (bgMusicURL) {
+  document.getElementById('music-container').innerHTML += `
+<audio src="${bgMusicURL}" ${bgMusicControls? 'controls': ''} autoplay loop>    
+<p>If you are reading this, it is because your browser does not support the audio element.</p>
+</audio>
+`;
+}
+
+// setup events
+document.onpointerdown = function (e) {
+  clearInterval(odrag.timer);
+  e = e || window.event;
+  var sX = e.clientX,
+      sY = e.clientY;
+
+  this.onpointermove = function (e) {
+    e = e || window.event;
+    var nX = e.clientX,
+        nY = e.clientY;
+    desX = nX - sX;
+    desY = nY - sY;
+    tX += desX * 0.1;
+    tY += desY * 0.1;
+    applyTranform(odrag);
+    sX = nX;
+    sY = nY;
+  };
+
+  this.onpointerup = function (e) {
+    odrag.timer = setInterval(function () {
+      desX *= 0.95;
+      desY *= 0.95;
+      tX += desX * 0.1;
+      tY += desY * 0.1;
+      applyTranform(odrag);
+      playSpin(false);
+      if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+        clearInterval(odrag.timer);
+        playSpin(true);
+      }
+    }, 17);
+    this.onpointermove = this.onpointerup = null;
+  };
+
+  return false;
+};
+
+document.onmousewheel = function(e) {
+  e = e || window.event;
+  var d = e.wheelDelta / 20 || -e.detail;
+  radius += d;
+  init(1);
+};
+
+
+          </script>
+{% block js %}
+<!-- <script src="{% static 'js2/carusel.js' %}"></script> -->
+
+{% endblock js %}
+
+                {% endblock content %}
+
+        

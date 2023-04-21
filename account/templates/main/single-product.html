@@ -1,0 +1,544 @@
+{% extends "main/base.html"%}
+
+{% load static %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css5/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'css5/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'js5/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'css5/themecss/lib.css' %}" rel="stylesheet">
+
+
+
+    <link id="color_scheme" href="{% static 'css5/theme.css' %}" rel="stylesheet">
+{% endblock css %}
+{% block content %}
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+        <!-- Body main wrapper start -->
+        <div class="wrapper home-one single-product-page">
+         
+          
+           
+            <!-- Page title end -->
+            <!-- QUICKVIEW PRODUCT START -->
+            <div id="quickview-wrapper">
+                <!-- Modal -->
+                <div class="modal fade" id="product_modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-close-btn">
+                                <button class="close" data-dismiss="modal">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                               <!-- Single product area -->
+                               <div class="single-product-area">
+                                   <div class="container-fullwidth">
+                                       <div class="single-product-wrapper">
+                                           <div class="row">
+                                               <div class="col-xs-12 col-md-7 col-lg-7">
+                                                    <div class="product-details-img-content">
+                                                        <div class="product-details-tab mr-40">
+                                                            <div class="product-details-large tab-content">
+                                                                <div class="tab-pane active" id="pro-details1">
+                                                                    <div class="product-popup">
+                                                                        <a href="{% static 'images2/product/single/product4.jpg' %}">
+                                                                            <img src="{% static 'images2/product/single/product4.jpg' %}" alt="">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="pro-details2">
+                                                                    <div class="product-popup">
+                                                                        <a href="{% static 'images2/product/single/product5.jpg' %}">
+                                                                            <img src="{% static 'images2/product/single/product5.jpg' %}" alt="">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="pro-details3">
+                                                                    <div class="product-popup">
+                                                                        <a href="{% static 'images2/product/single/product6.jpg' %}">
+                                                                            <img src="{% static 'images2/product/single/product6.jpg' %}" alt="">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="pro-details4">
+                                                                    <div class="product-popup">
+                                                                        <a href="{% static 'images2/product/single/product7.jpg' %}">
+                                                                            <img src="{% static 'images2/product/single/product7.jpg' %}" alt="">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tab-pane" id="pro-details5">
+                                                                    <div class="product-popup">
+                                                                        <a href="{% static 'images2/product/single/product8.jpg' %}">
+                                                                            <img src="{% static 'images2/product/single/product8.jpg' %}" alt="">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-details-small nav product-dec-slider-qui owl-carousel">
+                                                                <a class="active" href="#pro-details1">
+                                                                    <img src="{% static 'images2/product/thumbnails/product4.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details2">
+                                                                    <img src="{% static 'images2/product/thumbnails/product5.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details3">
+                                                                    <img src="{% static 'images2/product/thumbnails/product6.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details4">
+                                                                    <img src="{% static 'images2/product/thumbnails/product7.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details5">
+                                                                    <img src="{% static 'images2/product/thumbnails/product8.jpg' %}" alt="">
+                                                                </a>
+                                                                <a class="active" href="#pro-details1">
+                                                                    <img src="{% static 'images2/product/thumbnails/product4.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details2">
+                                                                    <img src="{% static 'images2/product/thumbnails/product5.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details3">
+                                                                    <img src="{% static 'images2/product/thumbnails/product6.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details4">
+                                                                    <img src="{% static 'images2/product/thumbnails/product7.jpg' %}" alt="">
+                                                                </a>
+                                                                <a href="#pro-details5">
+                                                                    <img src="{% static 'images2/product/thumbnails/product8.jpg' %}" alt="">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                               </div>
+                                               <div class="col-xs-12 col-md-5 col-lg-5">
+                                                   <div class="single-product-info">
+                                                       <h1>Sit voluptatem</h1>
+                                                       <div class="product-rattings">
+                                                            <span><i class="fa fa-star"></i></span>
+                                                            <span><i class="fa fa-star"></i></span>
+                                                            <span><i class="fa fa-star"></i></span>
+                                                            <span><i class="fa fa-star-half-o"></i></span>
+                                                            <span><i class="fa fa-star-o"></i></span>
+                                                        </div>
+                                                        <span class="price">
+                                                            <del>$ 77.00</del> $ 66.00
+                                                        </span>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco,Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus</p>
+                                                        <div class="box-quantity d-flex">
+                                                            <form action="#">
+                                                                <input class="quantity mr-40" min="1" value="1" type="number">
+                                                            </form>
+                                                            <a class="add-cart" href="cart.html">add to cart</a>
+                                                        </div>
+                                                        <div class="wishlist-compear-area">
+                                                            <a href="wishlist.html"><i class="ion-ios-heart-outline"></i> Add to Wishlist</a>
+                                                            <a href="#"><i class="ion-ios-loop-strong"></i> Compare</a>
+                                                        </div>
+                                                        <div class="product_meta">
+                                                            <span class="posted_in">Categories: <a href="#" rel="tag">Accessories</a>, <a href="#" rel="tag">Clothings</a></span>
+                                                        </div>
+                                                        <div class="single-product-sharing">
+                                                            <div class="widget widget_socialsharing_widget">
+                                                                <h3 class="widget-title">Share this product</h3>
+                                                                <ul class="social-icons">
+                                                                    <li><a class="facebook social-icon" href="#"><i class="fa fa-facebook"></i></a></li>
+                                                                    <li><a class="twitter social-icon" href="#"><i class="fa fa-twitter"></i></a></li>
+                                                                    <li><a class="pinterest social-icon" href="#"><i class="fa fa-pinterest"></i></a></li>
+                                                                    <li><a class="gplus social-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                                    <li><a class="linkedin social-icon" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                                <!-- Single product area end -->
+                                
+                            </div>
+                        </div><!-- .modal-content -->
+                    </div><!-- .modal-dialog -->
+                </div><!-- END Modal -->
+            </div>
+            <!-- QUICKVIEW PRODUCT END -->
+        </div>
+        <!-- Body main wrapper end -->
+
+
+
+        <!-- meoree -->
+
+       
+        
+           
+            
+          
+        <br>
+            <main class="main__content_wrapper">
+                
+                <div id="wrapper" class="wrapper-full ">
+                    <div class="main-container container">
+                        <div class="row">
+                            <!--Middle Part Start-->
+                            <div id="content" class="col-md-12 col-sm-12">
+                                <div class="product-view row">
+                                    <div class="left-content-product col-lg-12 col-xs-12">
+                                        <div class="row">
+                                            
+                                            <div align="center"   class="content-product-left class-honizol col-sm-12 col-xs-12 ">
+                                                <div style="width:600px" class="large-image"  >
+                                                    <img  style="max-width: 300px;" itemprop="image"  src="{{ product.photo2.url }}" title="Bint Beef" alt="Bint Beef">
+                                                </div>
+                                                <div align="center">
+                                                <div style="width: 500px;" id="thumb-slider" class="owl-theme owl-loaded owl-drag full_slider">
+                                                    <a data-index="0" class="img thumbnail " data-image="{{ product.photo2.url }}" title="Bint Beef">
+                                                        <img style="height: 100px;"  src="{{ product.photo2.url }}" title="Bint Beef" alt="Bint Beef">
+                                                    </a>
+                                                    <a data-index="1" class="img thumbnail " data-image="{{ product.photo3.url }}" title="Bint Beef">
+                                                        <img style="height: 100px;" src="{{ product.photo3.url }}" title="Bint Beef" alt="Bint Beef">
+                                                    </a>
+                                                    <a data-index="2" class="img thumbnail " data-image="{% static 'images2/slider/investor.jpg' %}" title="Bint Beef">
+                                                        <img style="height: 100px;" src="{% static 'images2/slider/investor.jpg' %}" title="Bint Beef" alt="Bint Beef">
+                                                    </a>
+                                                    <a data-index="3" class="img thumbnail" data-image="{% static 'images2/slider/investor.jpg' %}" title="Bint Beef">
+                                                        <img style="height: 100px;" src="{% static 'images2/slider/investor.jpg' %}" title="Bint Beef" alt="Bint Beef">
+                                                    </a>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+               
+        
+                <!-- Start product details section -->
+                <main class="main__content_wrapper">
+                
+                    <div id="wrapper" class="wrapper-full ">
+                        <div class="main-container container">
+                            <div class="row">
+                                <!--Middle Part Start-->
+                                <div id="content" class="col-md-12 col-sm-12">
+                                    <div class="product-view row">
+                                        <div class="left-content-product col-lg-12 col-xs-12">
+                                            <div class="row">
+                                                
+                                                <div align="center"   class="content-product-left class-honizol col-sm-12 col-xs-12 ">
+                                                    <div align="center" class="large-image  "  >
+
+                                                    {% if product.photo.url is not None %}
+                                                        
+                                                        
+                                                        {% if product.photo.url|slice:"-4:" == ".mp4" %} 
+                                                        <video class="video-fluid" controls autoplay muted style="max-width:200px;">
+                                                        <source src="{{ product.photo.url }}"  alt="" type="video/mp4">
+                                                      </video>
+                                                      {% else %}
+                                                      <img  style="max-width: 300px;" itemprop="image"  src="{{ product.photo.url }}" title="Bint Beef" alt="Bint Beef">
+                                                    
+                                                      {% endif %}
+                                                            {% else %}
+                                                                <img src="{% static 'images2/slider/investor.jpg' %}"   alt="main slider" title="#htmlcaption1"/>
+                                                        <div class="product__media--view__icon">
+                                                            <a class="" href="{% static 'images2/slider/investor.jpg' %}" data-gallery="product-media-preview">
+                                                            </a>
+                                                        </div>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div align="center">
+                                                            <div style="width: 500px;" id="thumb-slider" class="owl-theme owl-loaded owl-drag full_slider">
+                                                                {% if product.photo.url2 is not None %}
+                                                                <a data-index="0" class="img thumbnail " data-image="{{ product.photo2.url }}" title="Bint Beef">
+                                                                    
+                                                        
+                                                        
+                                                                    {% if product.photo.url2|slice:"-4:" == ".mp4" %} 
+                                                                    <video class="video-fluid" controls autoplay muted style="max-width:200px;">
+                                                                    <source src="{{ product.photo2.url }}"  alt="" type="video/mp4">
+                                                                  </video>
+                                                                  {% else %}
+                                                                  <img src="{{ product.photo2.url }}" title="Bint Beef" alt="Bint Beef">
+                                                                
+                                                                  {% endif %}
+                                                                </a>
+                                                                  
+                                                                        
+                                                                    
+                                                                
+                                                                {% endif %}
+
+                                                                {% if product.photo.url3 is not None %}
+                                                                <a data-index="1" class="img thumbnail " data-image="{{ product.photo3.url }}" title="Bint Beef">
+                                                                
+                                                        
+                                                        
+                                                                    {% if product.photo.url3|slice:"-4:" == ".mp4" %} 
+                                                                    <video class="video-fluid" controls autoplay muted style="max-width:200px;">
+                                                                    <source src="{{ product.photo3.url }}"  alt="" type="video/mp4">
+                                                                  </video>
+                                                                  {% else %}
+                                                                  <img src="{{ product.photo3.url }}" title="Bint Beef" alt="Bint Beef">
+
+                                                                  {% endif %}
+                                                                  {% endif %}
+                                                                </a>
+                                                                 
+                                                                
+                                                                <a data-index="2" class="img thumbnail " data-image="image/demo/shop/product/J5.jpg" title="Bint Beef">
+                                                                    <img src="image/demo/shop/product/J5.jpg" title="Bint Beef" alt="Bint Beef">
+                                                                </a>
+                                                                <a data-index="3" class="img thumbnail" data-image="image/demo/shop/product/J4.jpg" title="Bint Beef">
+                                                                    <img src="image/demo/shop/product/J4.jpg" title="Bint Beef" alt="Bint Beef">
+                                                                </a>
+                                                            </div>
+                                                            </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            
+                                                   
+                                        </div>
+                                    </div>
+                                    <div class="product__media--nav swiper">
+                                        <div class="swiper-wrapper">
+                                           
+                                            
+                                           
+                                        </div>
+                                        <div class="swiper__nav--btn swiper-button-next"></div>
+                                        <div class="swiper__nav--btn swiper-button-prev"></div>
+                                    </div>
+                                </div>
+                            </div>   
+                           
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End product details section -->
+        
+         
+                
+             
+                
+            </main>
+        
+         
+        <!-- Page title -->
+        <div class="entry-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="entry-title">
+                            {% if product.category_id == 2 %}
+                            {{product.garigebis_tipi}}
+                            {{ product.brendi }} {{ product.modeli }}
+                            {% elif product.category_id == 6 %}
+                            {{product.garigebis_tipi}}
+                            {{ product.qonebisTipiHouse }}
+                            {% else %}
+                            {{ product.satauri }}
+                            {% endif %}
+                             {{product.lokacia}}
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+           <center>
+        <div class="col">
+            <div class="product__details--info">
+                <form action="#">
+                    {% if product.category_id == 2 %}
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">ID:{{product.id}}</span>
+                        
+                    </div>
+                    
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">ტიპი: {{ product.qonebisTipiCar }}</span>
+                        
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">ბრენდი: {{ product.brendi }}</span>
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">მოდელი: {{ product.modeli }}</span>
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">გამოშვების წელი: {{ product.weli }}</span>
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">ძრავი: {{ product.dzravi }}</span>
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">ფერი: {{ product.feri }}</span>
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">საჭე: {{ product.sache }}</span>
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black"> ფასი: ${{ product.price }}</span>
+                        
+                    </div>
+                    <div class="product__details--info__price mb-10">
+                        <span class="current__price" style="color:black">დაგვიკავშირდით : +995 555 34 40 20</span>
+                        
+                    </div>
+
+                        {% elif product.category_id == 6 %}
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">ID:{{product.id}}</span>
+                            
+                        </div>
+                        
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">ტიპი: {{ product.qonebisTipiHouse }}</span>
+                            
+                        </div>
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">სართული: {{ product.sartuli }}</span>
+                        </div>
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">სართულები სულ: {{ product.sartulebi_sul }}</span>
+                        </div>
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">საძინებელი: {{ product.sadzineblebi }}</span>
+                        </div>
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">მისამართი: {{ product.quchis_saxeli }}</span>
+                        </div>
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black"> ფასი: ${{ product.price }}</span>
+                            
+                        </div>
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">დაგვიკავშირდით : +995 555 34 40 20</span>
+                            
+                        </div>
+                       
+                        {% else %}
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">ID:{{product.id}}</span>
+                            
+                        </div>
+                        
+                       
+                        
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">ფასი: ${{ product.price }}</span>
+                        </div>
+                        <div class="product__details--info__price mb-10">
+                            <span class="current__price" style="color:black">დაგვიკავშირდით: {{ product.telefonis_nomeri }}</span>
+                        </div>
+                       
+                        {% endif %}
+
+                    
+                   
+                   
+                        
+                </form>
+                        
+                       
+                    </div>
+                    
+                    
+                
+            </div>
+        </center>
+
+         <!-- product description -->
+         <div class="product-description-area">
+            <div class="container" >
+                <div class="row">
+                    <div class="col-sm-12" >
+                      
+                        <div class="tab-content" >
+                            <div id="description" class="tab-pane fade in show active" >
+                                <h2 align="center">აღწერა</h2><br>
+                                <pre>
+                                <p>{{ product.description }}</p>
+                            </pre>
+                            </div>
+                            
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product description end -->
+          
+        <div class="product-description-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                      
+                        <div class="tab-content">
+                            <div id="description" class="tab-pane fade in show active">
+                                <hr>
+                                <h2 align="center">კომენტარები</h2>
+                                <br>
+                                {% if not product.comments.all %}
+                                კომენტარები არარის <br><button type="button" class="btn btn-primary" style="font-size:20px;">
+                                <a href="{% url 'add_comment' product.pk %}" >კომენტარის დამატება</a></button>
+                                {% else %}
+                                <button type="button" class="btn btn-primary" style="font-size:20px;">
+                                    <a href="{% url 'add_comment' product.pk %}" >კომენტარის დამატება</a></button><br><br>
+                                    {% for com in product.comments.all %}
+                                    <strong>{{ com.full_name }} - {{ com.created_at }}</strong>
+                                    <br>
+                                    <h4 >{{ com.comment }}</h4>
+                                    <br>
+                                    
+                                    {% endfor %}
+                                    {% endif %}
+                                    
+
+                                
+                            </div>
+                            
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        {% endblock content %}
+
+        
+        {% block js %}
+        <script type="text/javascript" src="{% static 'js5/jquery-2.2.4.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js5/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js5/owl-carousel/owl.carousel.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js5/countdown/jquery.countdown.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js5/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js5/datetimepicker/moment.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js5/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+        
+        
+        <!-- Theme files
+            ============================================ -->
+            
+            
+            <script type="text/javascript" src="{% static 'js5/themejs/libs.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js5/themejs/application.js' %}"></script>
+        {% endblock js %}
+
+   

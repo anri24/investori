@@ -1,0 +1,17 @@
+<div align="center" style="color:white">
+{% if pages.has_previous %}
+<button type="button" class="btn btn-secondary btn-lg">
+<a href="page=1">პირველი გვერდი</a></button>
+<button type="button" class="btn btn-danger btn-lg">
+
+<a href="page={{ pages.previous_page_number }}">უკან</a></button>
+{% endif %}
+page {{pages.number}} of {{pages.paginator.num_pages}} 
+{% if pages.has_next %}
+<button type="button" class="btn btn-success btn-lg">
+<a href="page={{ pages.next_page_number }}">შემდეგი</a></button>
+<button type="button" class="btn btn-secondary btn-lg">
+
+<a href="page={{ pages.paginator.num_pages }}">ბოლო გვერდი</a></button>
+{% endif %}
+</div>
